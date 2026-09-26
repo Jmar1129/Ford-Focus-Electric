@@ -1,4 +1,121 @@
 { "commands": [
-
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2813"}, "freq": 15,
+  "signals": [
+    {"id": "FOCUSEV_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2814"}, "freq": 15,
+  "signals": [
+    {"id": "FOCUSEV_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2815"}, "freq": 15,
+  "signals": [
+    {"id": "FOCUSEV_TP_RRO", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2816"}, "freq": 15,
+  "signals": [
+    {"id": "FOCUSEV_TP_RLO", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left outer tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "4027"}, "freq": 3600,
+  "signals": [
+    {"id": "FOCUSEV_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V battery age"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "4028"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_12V_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "12V battery state of charge"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "4029"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_12V_T", "path": "Battery", "fmt": { "len": 8, "max": 100, "min": -40, "add": -40, "unit": "celsius" }, "name": "12V battery temperature"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "402A"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_12V_V", "path": "Battery", "fmt": { "len": 8, "max": 18.75, "div": 20, "add": 6, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "407E"}, "freq": 1,
+  "signals": [
+    {"id": "FOCUSEV_EXTERIOR_LIGHT_STATE", "path": "Lights", "name": "Exterior lighting state", "fmt": {"bix": 0, "len": 1, "map": {
+          "0":   { "description": "0", "value": "0" },
+          "216": { "description": "1", "value": "1" }
+        }}
+    }
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "7151"}, "freq": 4,
+  "signals": [
+    {"id": "FOCUSEV_HIGHBEAM_STATUS", "path": "Lights", "fmt": { "len": 16, "max": 2, "unit": "offon" }, "name": "Highbeam Status"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "C150"}, "freq": 3,
+  "signals": [
+    {"id": "FOCUSEV_TRUNK_OPEN",          "path": "Doors", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "noyes" }, "name": "Trunk Ajar?"},
+    {"id": "FOCUSEV_RRD_OPEN",            "path": "Doors", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Right Door Ajar?"},
+    {"id": "FOCUSEV_RLD_OPEN",            "path": "Doors", "fmt": {"bix": 13, "len": 1, "max": 1, "unit": "noyes" }, "name": "Rear Left Door Ajar?"},
+    {"id": "FOCUSEV_DRIVER_DOOR_OPEN",    "path": "Doors", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "noyes" }, "name": "Driver Door Ajar"},
+    {"id": "FOCUSEV_PASSENGER_DOOR_OPEN", "path": "Doors", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "noyes" }, "name": "Passenger Door Ajar?"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "C154"}, "freq": 3,
+  "signals": [
+    {"id": "FOCUSEV_HOOD_OPEN", "path": "Doors", "fmt": { "len": 1, "max": 1, "unit": "noyes" }, "name": "Hood Ajar?"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "C259"}, "freq": 2,
+  "signals": [
+    {"id": "FOCUSEV_CENTRAL_LOCK_STATUS", "path": "Doors", "name": "Lock Status", "fmt": {"len": 8, "map": {
+          "0": { "description": "Unlocked", "value": "UNLOCKED" },
+          "2": { "description": "Locked",   "value": "LOCKED" }
+        }}
+    }
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "DD01"}, "freq": 30,
+  "signals": [
+    {"id": "FOCUSEV_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (Instrument panel)", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "760", "dbg": true, "cmd": {"22": "2B00"}, "freq": 3,
+  "signals": [
+    {"id": "FOCUSEV_PARKING_BRAKE", "path": "Transmission", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Focus Parking Brake State"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B06"}, "freq": 0.25,
+  "signals": [
+    {"id": "FOCUSEV_FR_VSS", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B07"}, "freq": 0.25,
+  "signals": [
+    {"id": "FOCUSEV_FL_VSS", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B08"}, "freq": 0.25,
+  "signals": [
+    {"id": "FOCUSEV_RR_VSS", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B09"}, "freq": 0.25,
+  "signals": [
+    {"id": "FOCUSEV_RL_VSS", "path": "Movement", "fmt": { "len": 8, "max": 200, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B11"}, "freq": 0.25,
+  "signals": [
+    {"id": "FOCUSEV_LAT_G", "path": "Movement", "fmt": { "len": 16, "max": 1, "min": -1, "div": 50, "sign": true, "unit": "scalar" }, "name": "Lateral acceleration"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4800"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery temperature"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4801"}, "freq": 30,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV battery charge", "suggestedMetric": "stateOfCharge"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4808"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_T_MAX", "path": "Battery", "fmt": {           "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery temperature, maximum"},
+    {"id": "FOCUSEV_HVBAT_T_MIN", "path": "Battery", "fmt": {"bix": 8,  "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery temperature, minimum"},
+    {"id": "FOCUSEV_HVBAT_T_AVG", "path": "Battery", "fmt": {"bix": 24, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "HV battery temperature, average"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "480B"}, "freq": 1,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_A", "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV battery current"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "480D"}, "freq": 1,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_V", "path": "Battery", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "volts" }, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4840"}, "freq": 5,
+  "signals": [
+    {"id": "FOCUSEV_HVBAT_MIN_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery minimum module voltage"}
+  ]}
 ]
 }

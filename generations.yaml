@@ -1,0 +1,8 @@
+references:
+  - "https://en.wikipedia.org/wiki/Ford_Focus_Electric"
+
+generations:
+  - name: "Focus Electric (C346; 2012)"
+    start_year: 2012
+    end_year: 2018
+    description: "The battery-electric version of the third-generation Focus five-door hatchback, built alongside the gas Focus at Michigan Assembly. It shares the Focus's body, chassis and body electronics, and replaces the engine, fuel system and transmission with an electric motor, a single-speed reduction gear and a liquid-cooled battery under the rear seat and cargo floor. The battery was 23 kWh until the 2017 update raised it to 33.5 kWh and added DC fast charging."
