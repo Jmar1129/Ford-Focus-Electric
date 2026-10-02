@@ -90,7 +90,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_CENTRAL_LOCK_STATUS", "path": "Doors", "fmt": { "len": 8, "map": { "0": { "val": "UNLOCKED", "desc": "Unlocked" }, "2": { "val": "LOCKED", "desc": "Locked" } } }, "name": "Lock Status" }
+      { "id": "FOCUSEV_CENTRAL_LOCK_STATUS", "path": "Doors", "fmt": { "len": 8, "max": 2, "unit": "scalar", "map": { "0": { "val": "UNLOCKED", "desc": "Unlocked" }, "2": { "val": "LOCKED", "desc": "Locked" } } }, "name": "Lock Status" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E12" }, "freq": 2,
