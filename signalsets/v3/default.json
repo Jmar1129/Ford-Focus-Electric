@@ -58,6 +58,26 @@
       { "id": "FOCUSEV_CHG_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "Charger Voltage" }
     ]
   },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "485E" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_PILOT_DUTY", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "EVSE Pilot Duty Cycle" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "485F" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_PROX_STAT", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Charge Handle Proximity (Raw)" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484F" }, "freq": 1,
+    "signals": [
+      { "id": "FOCUSEV_CHG_AMPS_RAW", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Charge Current (Raw)" }
+    ]
+  },
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4850" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_AC_LINE_V", "path": "Battery", "fmt": { "len": 16, "max": 300, "unit": "volts" }, "name": "AC Grid Line Voltage" }
+    ]
+  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "402A" }, "freq": 5,
     "signals": [
       { "id": "FOCUSEV_12V_V", "path": "Battery", "fmt": { "len": 8, "max": 18.75, "div": 20, "add": 6, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage" }
