@@ -33,9 +33,24 @@
       { "id": "FOCUSEV_HVBAT_MIN_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery minimum module voltage" }
     ]
   },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4842" }, "freq": 5,
+    "signals": [
+      { "id": "FOCUSEV_HVBAT_MAX_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery maximum module voltage" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4843" }, "freq": 5,
+    "signals": [
+      { "id": "FOCUSEV_HVBAT_AVG_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery average module voltage" }
+    ]
+  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
     "signals": [
       { "id": "FOCUSEV_HVBAT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 350, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4849" }, "freq": 10,
+    "signals": [
+      { "id": "FOCUSEV_HVBAT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "HV Battery State of Health", "suggestedMetric": "stateOfHealth" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
@@ -98,6 +113,13 @@
       { "id": "FOCUSEV_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V battery age" }
     ]
   },
+  { "hdr": "726", "rax": "72E", "cmd": { "22": "41A9" }, "freq": 5,
+    "signals": [
+      { "id": "FOCUSEV_12V_V_LOW", "path": "Battery", "fmt": { "bix": 3, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Battery Voltage Too Low" },
+      { "id": "FOCUSEV_12V_SOC_LOW", "path": "Battery", "fmt": { "bix": 4, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Battery SOC Too Low" },
+      { "id": "FOCUSEV_12V_REFRESH", "path": "Battery", "fmt": { "bix": 14, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Refresh Cycle In Progress" }
+    ]
+  },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 5,
     "signals": [
       { "id": "FOCUSEV_CAR_T", "path": "Climate", "fmt": { "len": 8, "max": 31.875, "div": 8, "unit": "celsius" }, "name": "In car temperature" }
@@ -105,7 +127,7 @@
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
     "signals": [
-      { "id": "FOCUSEV_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient temperature" }
+      { "id": "FOCUSEV_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient temperature", "suggestedMetric": "ambientTemperature" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
@@ -230,6 +252,11 @@
   { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 15,
     "signals": [
       { "id": "FOCUSEV_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire pressure warning" }
+    ]
+  },
+  { "cmd": { "01": "31" }, "freq": 30,
+    "signals": [
+      { "id": "FOCUSEV_DIST_DTC_CLR", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since DTC clear", "suggestedMetric": "distanceSinceDTCsCleared" }
     ]
   }
 ]}
