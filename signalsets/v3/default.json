@@ -50,7 +50,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4849" }, "freq": 10,
     "signals": [
-      { "id": "FOCUSEV_HVBAT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "HV Battery State of Health", "suggestedMetric": "stateOfHealth" }
+      { "id": "FOCUSEV_HVBAT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "HV Battery State of Health" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
@@ -127,7 +127,7 @@
   },
   { "hdr": "720", "rax": "728", "cmd": { "22": "F446" }, "freq": 1,
     "signals": [
-      { "id": "FOCUSEV_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient temperature", "suggestedMetric": "ambientTemperature" }
+      { "id": "FOCUSEV_AMB_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 255, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient temperature" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
@@ -252,11 +252,6 @@
   { "hdr": "720", "rax": "728", "cmd": { "22": "61A5" }, "freq": 15,
     "signals": [
       { "id": "FOCUSEV_TPMS_WARN", "path": "Tires", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Tire pressure warning" }
-    ]
-  },
-  { "cmd": { "01": "31" }, "freq": 30,
-    "signals": [
-      { "id": "FOCUSEV_DIST_DTC_CLR", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Distance since DTC clear", "suggestedMetric": "distanceSinceDTCsCleared" }
     ]
   }
 ]}
