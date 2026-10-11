@@ -1,9 +1,9 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV battery charge", "suggestedMetric": "stateOfCharge" },
-      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
-      { "id": "FOCUSEV_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
+      { "id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 476, "unit": "percent" }, "name": "HV battery charge", "suggestedMetric": "stateOfCharge" },
+      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.775, "unit": "miles" }, "name": "Est. Range (Heat OFF)", "suggestedMetric": "electricRange" },
+      { "id": "FOCUSEV_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.22, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 1,
@@ -33,27 +33,12 @@
       { "id": "FOCUSEV_HVBAT_MIN_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery minimum module voltage" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4842" }, "freq": 5,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_MAX_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery maximum module voltage" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4843" }, "freq": 5,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_AVG_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery average module voltage" }
-    ]
-  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
     "signals": [
       { "id": "FOCUSEV_HVBAT_CAPACITY", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 350, "unit": "kilowattHours" }, "name": "HV Battery Capacity (kWh)" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4849" }, "freq": 10,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "HV Battery State of Health" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
+  { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484D" }, "freq": 2,
     "signals": [
       { "id": "FOCUSEV_CHRG_STATE", "path": "Battery", "fmt": { "len": 8, "max": 5, "unit": "scalar", "map": { "0": { "val": "NOT_CHARGING", "desc": "Not Ready" }, "1": { "val": "WAIT", "desc": "Wait" }, "2": { "val": "READY", "desc": "Ready" }, "3": { "val": "CHARGING", "desc": "Charging" }, "4": { "val": "DONE", "desc": "Done" }, "5": { "val": "FAULT", "desc": "Fault" } } }, "name": "Charging State", "suggestedMetric": "isCharging" }
     ]
@@ -70,7 +55,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "480D" }, "freq": 5,
     "signals": [
-      { "id": "FOCUSEV_CHG_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "Charger Voltage" }
+      { "id": "FOCUSEV_CHG_VOLTS", "path": "Battery", "fmt": { "len": 16, "max": 65000, "div": 100, "unit": "volts" }, "name": "Charger DC Voltage" }
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "485E" }, "freq": 2,
@@ -111,13 +96,6 @@
   { "hdr": "726", "rax": "72E", "cmd": { "22": "4027" }, "freq": 3600,
     "signals": [
       { "id": "FOCUSEV_12V_AGE", "path": "Battery", "fmt": { "len": 16, "max": 1572840, "mul": 24, "unit": "hours" }, "name": "12V battery age" }
-    ]
-  },
-  { "hdr": "726", "rax": "72E", "cmd": { "22": "41A9" }, "freq": 5,
-    "signals": [
-      { "id": "FOCUSEV_12V_V_LOW", "path": "Battery", "fmt": { "bix": 3, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Battery Voltage Too Low" },
-      { "id": "FOCUSEV_12V_SOC_LOW", "path": "Battery", "fmt": { "bix": 4, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Battery SOC Too Low" },
-      { "id": "FOCUSEV_12V_REFRESH", "path": "Battery", "fmt": { "bix": 14, "len": 1, "max": 1, "unit": "offon" }, "name": "12V Refresh Cycle In Progress" }
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "DD04" }, "freq": 5,
