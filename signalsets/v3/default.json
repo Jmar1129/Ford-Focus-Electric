@@ -4,17 +4,17 @@
       { "id": "FOCUSEV_BAT_CHA_DISPL", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV Battery SOC (Displayed)", "suggestedMetric": "stateOfCharge" }
     ]
   },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": { "len": 16, "max": 35, "div": 500, "unit": "kilowattHours" }, "name": "Battery Energy to Empty (kWh)" },
+      { "id": "FOCUSEV_RANGE_FROM_KWH", "path": "Trips", "fmt": { "len": 16, "max": 150, "div": 127, "unit": "miles" }, "name": "Est. Range from Energy (4848)", "suggestedMetric": "electricRange" }
+    ]
+  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
       { "id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV Battery SOC (Physical)" },
-      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range Budget (4801)", "suggestedMetric": "electricRange" },
+      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range (Physical 4801)", "suggestedMetric": "electricRange" },
       { "id": "FOCUSEV_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range Heat ON (4801)", "suggestedMetric": "electricRange" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 2,
-    "signals": [
-      { "id": "FOCUSEV_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": { "len": 16, "max": 35, "div": 1000, "unit": "kilowattHours" }, "name": "Battery Energy to Empty (kWh)" },
-      { "id": "FOCUSEV_RANGE_FROM_KWH", "path": "Trips", "fmt": { "len": 16, "max": 150, "div": 265, "unit": "miles" }, "name": "Est. Range from Energy (4848)", "suggestedMetric": "electricRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "490C" }, "freq": 10,
