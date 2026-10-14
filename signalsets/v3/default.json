@@ -1,19 +1,20 @@
 { "commands": [
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4845" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_HVBAT_SOC_DISP", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV Battery SOC (Displayed)", "suggestedMetric": "stateOfCharge" }
+      { "id": "FOCUSEV_BAT_CHA_DISPL", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV Battery SOC (Displayed)", "suggestedMetric": "stateOfCharge" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4801" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV Battery SOC (Internal)" },
-      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range Budget", "suggestedMetric": "electricRange" },
-      { "id": "FOCUSEV_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range (Heat ON)", "suggestedMetric": "electricRange" }
+      { "id": "FOCUSEV_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 500, "unit": "percent" }, "name": "HV Battery SOC (Physical)" },
+      { "id": "FOCUSEV_CALC_RANGE", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 1.88, "unit": "miles" }, "name": "Est. Range Budget (4801)", "suggestedMetric": "electricRange" },
+      { "id": "FOCUSEV_CALC_RANGE_HEAT", "path": "Trips", "fmt": { "len": 8, "max": 255, "div": 2.41, "unit": "miles" }, "name": "Est. Range Heat ON (4801)", "suggestedMetric": "electricRange" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 5,
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_ENERGY_TO_EMPTY", "path": "Battery", "fmt": { "len": 16, "max": 35, "div": 1000, "unit": "kilowattHours" }, "name": "HV Battery Energy to Empty" }
+      { "id": "FOCUSEV_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": { "len": 16, "max": 35, "div": 1000, "unit": "kilowattHours" }, "name": "Battery Energy to Empty (kWh)" },
+      { "id": "FOCUSEV_RANGE_FROM_KWH", "path": "Trips", "fmt": { "len": 16, "max": 150, "div": 265, "unit": "miles" }, "name": "Est. Range from Energy (4848)", "suggestedMetric": "electricRange" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "490C" }, "freq": 10,
@@ -104,29 +105,61 @@
       { "id": "FOCUSEV_GEAR_POS", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar", "map": { "70": { "val": "P", "desc": "Park" }, "1": { "val": "R", "desc": "Reverse" }, "2": { "val": "N", "desc": "Neutral" }, "3": { "val": "D", "desc": "Drive" }, "4": { "val": "L", "desc": "Low" } } }, "name": "Gear Position" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E2C" }, "freq": 1,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E2C" }, "freq": 1,
     "signals": [
-      { "id": "FOCUSEV_MOTOR_RPM", "path": "Movement", "fmt": { "len": 16, "max": 15000, "min": -15000, "sign": true, "unit": "rpm" }, "name": "Traction Motor Speed (RPM)" }
+      { "id": "FOCUSEV_MOTOR_RPM", "path": "Movement", "fmt": { "len": 16, "max": 16000, "min": -16000, "sign": true, "unit": "rpm" }, "name": "Traction Motor Speed (RPM)" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "481C" }, "freq": 1,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "481C" }, "freq": 1,
     "signals": [
-      { "id": "FOCUSEV_MOTOR_TORQUE", "path": "Movement", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Measured Motor Torque" }
+      { "id": "FOCUSEV_MTQ_MEAS", "path": "Movement", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Measured Traction Motor Torque" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "481F" }, "freq": 5,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "481B" }, "freq": 1,
     "signals": [
-      { "id": "FOCUSEV_MOTOR_COIL_T", "path": "Movement", "fmt": { "len": 16, "max": 250, "min": -50, "sign": true, "unit": "celsius" }, "name": "Motor Winding Temperature" }
+      { "id": "FOCUSEV_MTQ_CMD", "path": "Movement", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Commanded Motor Torque" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4824" }, "freq": 5,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4819" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_INV_PHASE_T", "path": "Movement", "fmt": { "len": 16, "max": 250, "min": -50, "sign": true, "unit": "celsius" }, "name": "Motor Inverter Phase Temp" }
+      { "id": "FOCUSEV_GTQ_CMD", "path": "Movement", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Commanded Generator Torque" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "481A" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_GTQ_MEAS", "path": "Movement", "fmt": { "len": 16, "max": 500, "min": -500, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Measured Generator Torque" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4822" }, "freq": 1,
+    "signals": [
+      { "id": "FOCUSEV_WTCO", "path": "Movement", "fmt": { "len": 16, "max": 3000, "min": -3000, "div": 10, "sign": true, "unit": "newtonMeters" }, "name": "Commanded Wheel Torque" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "484B" }, "freq": 2,
+    "signals": [
+      { "id": "FOCUSEV_AC_COMP_RPM", "path": "Climate", "fmt": { "len": 8, "max": 10000, "unit": "rpm" }, "name": "Electric A/C Compressor Speed" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "48DE" }, "freq": 2,
     "signals": [
-      { "id": "FOCUSEV_CABIN_HTR_PWR", "path": "Climate", "fmt": { "len": 16, "max": 10000, "unit": "watts" }, "name": "Coolant Heater Power" }
+      { "id": "FOCUSEV_COOLHTR_PWR", "path": "Climate", "fmt": { "len": 16, "max": 7000, "unit": "watts" }, "name": "HV Coolant Heater Power" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "48DD" }, "freq": 5,
+    "signals": [
+      { "id": "FOCUSEV_COOLHTR_V", "path": "Climate", "fmt": { "len": 8, "max": 450, "unit": "volts" }, "name": "HV Coolant Heater Input Voltage" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "48DF" }, "freq": 5,
+    "signals": [
+      { "id": "FOCUSEV_COOLHTR_OP", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "HV Coolant Heater Operating Mode" }
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4046" }, "freq": 3,
+    "signals": [
+      { "id": "FOCUSEV_PTC_STAT", "path": "Climate", "fmt": { "bix": 0, "len": 1, "max": 1, "unit": "offon" }, "name": "Cabin PTC Heater Input Status" },
+      { "id": "FOCUSEV_PTC_STAGE1", "path": "Climate", "fmt": { "bix": 1, "len": 1, "max": 1, "unit": "offon" }, "name": "Cabin PTC Heater Stage 1" },
+      { "id": "FOCUSEV_PTC_STAGE2", "path": "Climate", "fmt": { "bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "Cabin PTC Heater Stage 2" }
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "981E" }, "freq": 5,
