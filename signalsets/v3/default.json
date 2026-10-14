@@ -16,26 +16,6 @@
       { "id": "FOCUSEV_RANGE_FROM_KWH", "path": "Trips", "fmt": { "len": 16, "max": 150, "div": 127, "unit": "miles" }, "name": "Est. Range from Energy (4848)", "suggestedMetric": "electricRange" }
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "490C" }, "freq": 10,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_SOH", "path": "Battery", "fmt": { "len": 8, "max": 100, "div": 2, "unit": "percent" }, "name": "HV Battery State of Health (SOH)" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "485C" }, "freq": 10,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_CAP_AH", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "ampereHours" }, "name": "HV Battery Usable Capacity (Ah)" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "48DC" }, "freq": 2,
-    "signals": [
-      { "id": "FOCUSEV_DISCHARGE_LIM_KW", "path": "Battery", "fmt": { "len": 16, "max": 150, "div": 10, "unit": "kilowatts" }, "name": "Battery Discharge Power Limit" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "48FB" }, "freq": 2,
-    "signals": [
-      { "id": "FOCUSEV_CHARGE_LIM_KW", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 10, "unit": "kilowatts" }, "name": "Battery Charge Power Limit" }
-    ]
-  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 1,
     "signals": [
       { "id": "FOCUSEV_HVBAT_A", "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV battery current" }
@@ -87,11 +67,6 @@
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4840" }, "freq": 5,
     "signals": [
       { "id": "FOCUSEV_HVBAT_MIN_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery minimum module voltage" }
-    ]
-  },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4841" }, "freq": 5,
-    "signals": [
-      { "id": "FOCUSEV_HVBAT_AVG_MOD_V", "path": "Battery", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery average module voltage" }
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
