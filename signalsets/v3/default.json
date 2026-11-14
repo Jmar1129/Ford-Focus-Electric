@@ -83,6 +83,11 @@
       {"id": "FOCUSEV_APP1_V", "path": "Control", "fmt": {"len": 16, "max": 5, "div": 1024, "unit": "volts"}, "name": "Accelerator Pedal Position Sensor 1 Voltage"}
     ]
   },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "9859" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_PTC_HTR_DUTY", "path": "Climate", "fmt": {"len": 8, "max": 100, "unit": "percent"}, "name": "Cabin PTC Heater Output Control"}
+    ]
+  },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "DD05" }, "freq": 10,
     "signals": [
       {"id": "FOCUSEV_EXT_TEMP", "path": "Climate", "fmt": {"len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius"}, "name": "Exterior Ambient Temperature"}
