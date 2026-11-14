@@ -25,11 +25,6 @@
       {"id": "FOCUSEV_HVBAT_V", "path": "Battery", "fmt": {"len": 16, "max": 655.35, "div": 100, "unit": "volts"}, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"}
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4804" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_CHRG_POW_LIM", "path": "Battery", "fmt": {"len": 8, "max": 127.5, "div": 2, "unit": "kilowatts"}, "name": "Battery Charge Power Limit"}
-    ]
-  },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4807" }, "freq": 5,
     "signals": [
       {"id": "FOCUSEV_CONTACTOR_V_TOT", "path": "Battery", "fmt": {"len": 16, "max": 655.35, "div": 100, "unit": "volts"}, "name": "Contactor Voltage Total"}
@@ -88,59 +83,9 @@
       {"id": "FOCUSEV_APP1_V", "path": "Control", "fmt": {"len": 16, "max": 5, "div": 1024, "unit": "volts"}, "name": "Accelerator Pedal Position Sensor 1 Voltage"}
     ]
   },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_PTC_HTR_PWR", "path": "Climate", "fmt": {"len": 16, "max": 6000, "unit": "watts"}, "name": "Cabin PTC Heater Power"}
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "486D" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_PTC_HTR_CMD", "path": "Climate", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Cabin Heater ON/OFF Command"}
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "9859" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_PTC_HTR_DUTY", "path": "Climate", "fmt": {"len": 8, "max": 100, "unit": "percent"}, "name": "Cabin PTC Heater Output Control"}
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4868" }, "freq": 5,
-    "signals": [
-      {"id": "FOCUSEV_BAT_HTR_B_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Battery Coolant Heater B Relay Command"}
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4869" }, "freq": 5,
-    "signals": [
-      {"id": "FOCUSEV_BAT_HTR_A_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Battery Coolant Heater A Relay Command"}
-    ]
-  },
-  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "981E" }, "freq": 5,
-    "signals": [
-      {"id": "FOCUSEV_HTR_CORE_T", "path": "Climate", "fmt": {"len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius"}, "name": "Heater Core Coolant Temp"}
-    ]
-  },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "DD05" }, "freq": 10,
     "signals": [
       {"id": "FOCUSEV_EXT_TEMP", "path": "Climate", "fmt": {"len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius"}, "name": "Exterior Ambient Temperature"}
-    ]
-  },
-  { "hdr": "716", "rax": "71E", "cmd": { "22": "484B" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_HVAC_COMP_RPM", "path": "Climate", "fmt": {"len": 8, "max": 12750, "mul": 50, "unit": "rpm"}, "name": "Electric A/C Compressor Speed"}
-    ]
-  },
-  { "hdr": "716", "rax": "71E", "cmd": { "22": "981C" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_HVAC_ACCM_HV_V", "path": "Climate", "fmt": {"len": 8, "max": 510, "mul": 2, "unit": "volts"}, "name": "Electric A/C Compressor HV Voltage"}
-    ]
-  },
-  { "hdr": "716", "rax": "71E", "cmd": { "22": "981D" }, "freq": 5,
-    "signals": [
-      {"id": "FOCUSEV_HVAC_ACCM_TEMP", "path": "Climate", "fmt": {"len": 8, "min": -40, "max": 150, "add": -40, "unit": "celsius"}, "name": "Electric A/C Compressor Internal Temperature"}
-    ]
-  },
-  { "hdr": "716", "rax": "71E", "cmd": { "22": "99AB" }, "freq": 2,
-    "signals": [
-      {"id": "FOCUSEV_HVAC_COMP_CURR", "path": "Climate", "fmt": {"len": 16, "max": 50, "mul": 61037, "div": 20000000, "unit": "amps"}, "name": "Electric A/C Compressor Motor Current"}
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4851" }, "freq": 5,
