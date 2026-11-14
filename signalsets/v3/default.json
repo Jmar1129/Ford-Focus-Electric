@@ -17,12 +17,17 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480B" }, "freq": 1,
     "signals": [
-      {"id": "FOCUSEV_HVBAT_A", "path": "Battery", "fmt": {"len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amperes"}, "name": "HV battery current"}
+      {"id": "FOCUSEV_HVBAT_A", "path": "Battery", "fmt": {"len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps"}, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"}
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "480D" }, "freq": 1,
     "signals": [
       {"id": "FOCUSEV_HVBAT_V", "path": "Battery", "fmt": {"len": 16, "max": 655.35, "div": 100, "unit": "volts"}, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"}
+    ]
+  },
+  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4804" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_CHRG_POW_LIM", "path": "Battery", "fmt": {"len": 8, "max": 127.5, "div": 2, "unit": "kilowatts"}, "name": "Battery Charge Power Limit"}
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4807" }, "freq": 5,
@@ -37,7 +42,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4800" }, "freq": 5,
     "signals": [
-      {"id": "FOCUSEV_HVBAT_T", "path": "Battery", "fmt": {"len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius"}, "name": "HV battery temperature", "suggestedMetric": "batteryTemperature"}
+      {"id": "FOCUSEV_HVBAT_T", "path": "Battery", "fmt": {"len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius"}, "name": "HV battery temperature"}
     ]
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4808" }, "freq": 5,
@@ -73,9 +78,39 @@
       {"id": "FOCUSEV_CHRG_STATE", "path": "Battery", "fmt": {"len": 8, "max": 5, "unit": "scalar", "map": {"0": {"val": "NOT_CHARGING", "desc": "Not Ready"}, "1": {"val": "WAIT", "desc": "Wait"}, "2": {"val": "READY", "desc": "Ready"}, "3": {"val": "CHARGING", "desc": "Charging"}, "4": {"val": "DONE", "desc": "Done"}, "5": {"val": "FAULT", "desc": "Fault"}}}, "name": "Charging State", "suggestedMetric": "isCharging"}
     ]
   },
-  { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "1E12" }, "freq": 2,
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E23" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_GEAR_POS", "path": "Movement", "fmt": {"len": 8, "max": 255, "unit": "scalar", "map": {"70": {"val": "P", "desc": "Park"}, "1": {"val": "R", "desc": "Reverse"}, "2": {"val": "N", "desc": "Neutral"}, "3": {"val": "D", "desc": "Drive"}, "4": {"val": "L", "desc": "Low"}}}, "name": "Gear Position"}
+      {"id": "FOCUSEV_GEAR_POS", "path": "Transmission", "fmt": {"len": 8, "max": 255, "unit": "scalar", "map": {"70": {"val": "PARK", "desc": "Park"}, "60": {"val": "REVERSE", "desc": "Reverse"}, "50": {"val": "NEUTRAL", "desc": "Neutral"}, "40": {"val": "DRIVE", "desc": "Drive"}, "41": {"val": "DRIVE", "desc": "Drive"}, "42": {"val": "DRIVE", "desc": "Drive"}, "43": {"val": "DRIVE", "desc": "Drive"}, "44": {"val": "DRIVE", "desc": "Drive"}, "45": {"val": "DRIVE", "desc": "Drive"}, "46": {"val": "DRIVE", "desc": "Drive"}, "20": {"val": "LOW", "desc": "Low"}, "21": {"val": "LOW", "desc": "Low"}, "22": {"val": "LOW", "desc": "Low"}, "23": {"val": "LOW", "desc": "Low"}}}, "name": "Gear Position", "suggestedMetric": "gearSelector"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "0914" }, "freq": 1,
+    "signals": [
+      {"id": "FOCUSEV_APP1_V", "path": "Control", "fmt": {"len": 16, "max": 5, "div": 1024, "unit": "volts"}, "name": "Accelerator Pedal Position Sensor 1 Voltage"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E12" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_PTC_HTR_PWR", "path": "Climate", "fmt": {"len": 16, "max": 6000, "unit": "watts"}, "name": "Cabin PTC Heater Power"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "486D" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_PTC_HTR_CMD", "path": "Climate", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Cabin Heater ON/OFF Command"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "9859" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_PTC_HTR_DUTY", "path": "Climate", "fmt": {"len": 8, "max": 100, "unit": "percent"}, "name": "Cabin PTC Heater Output Control"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4868" }, "freq": 5,
+    "signals": [
+      {"id": "FOCUSEV_BAT_HTR_B_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Battery Coolant Heater B Relay Command"}
+    ]
+  },
+  { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4869" }, "freq": 5,
+    "signals": [
+      {"id": "FOCUSEV_BAT_HTR_A_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Battery Coolant Heater A Relay Command"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "981E" }, "freq": 5,
@@ -85,7 +120,27 @@
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "DD05" }, "freq": 10,
     "signals": [
-      {"id": "FOCUSEV_EXT_TEMP", "path": "Climate", "fmt": {"len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius"}, "name": "Exterior Ambient Temperature", "suggestedMetric": "ambientAirTemperature"}
+      {"id": "FOCUSEV_EXT_TEMP", "path": "Climate", "fmt": {"len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius"}, "name": "Exterior Ambient Temperature"}
+    ]
+  },
+  { "hdr": "716", "rax": "71E", "cmd": { "22": "484B" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_HVAC_COMP_RPM", "path": "Climate", "fmt": {"len": 8, "max": 12750, "mul": 50, "unit": "rpm"}, "name": "Electric A/C Compressor Speed"}
+    ]
+  },
+  { "hdr": "716", "rax": "71E", "cmd": { "22": "981C" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_HVAC_ACCM_HV_V", "path": "Climate", "fmt": {"len": 8, "max": 510, "mul": 2, "unit": "volts"}, "name": "Electric A/C Compressor HV Voltage"}
+    ]
+  },
+  { "hdr": "716", "rax": "71E", "cmd": { "22": "981D" }, "freq": 5,
+    "signals": [
+      {"id": "FOCUSEV_HVAC_ACCM_TEMP", "path": "Climate", "fmt": {"len": 8, "min": -40, "max": 150, "add": -40, "unit": "celsius"}, "name": "Electric A/C Compressor Internal Temperature"}
+    ]
+  },
+  { "hdr": "716", "rax": "71E", "cmd": { "22": "99AB" }, "freq": 2,
+    "signals": [
+      {"id": "FOCUSEV_HVAC_COMP_CURR", "path": "Climate", "fmt": {"len": 16, "max": 50, "mul": 61037, "div": 20000000, "unit": "amps"}, "name": "Electric A/C Compressor Motor Current"}
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4851" }, "freq": 5,
@@ -105,7 +160,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4850" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_CHG_OUT_A", "path": "Battery", "fmt": {"len": 16, "max": 655.35, "div": 100, "unit": "amperes"}, "name": "Charger DC Output Current"}
+      {"id": "FOCUSEV_CHG_OUT_A", "path": "Battery", "fmt": {"len": 16, "max": 655.35, "div": 100, "unit": "amps"}, "name": "Charger DC Output Current"}
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "485E" }, "freq": 2,
@@ -115,7 +170,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "485F" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_AC_LINE_A", "path": "Battery", "fmt": {"len": 8, "max": 100, "unit": "amperes"}, "name": "Charger AC Input Current"}
+      {"id": "FOCUSEV_AC_LINE_A", "path": "Battery", "fmt": {"len": 8, "max": 100, "unit": "amps"}, "name": "Charger AC Input Current"}
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4861" }, "freq": 5,
@@ -247,6 +302,16 @@
   { "hdr": "760", "rax": "768", "cmd": { "22": "2B00" }, "freq": 3,
     "signals": [
       {"id": "FOCUSEV_PARKING_BRAKE", "path": "Movement", "fmt": {"len": 1, "max": 1, "unit": "offon", "bix": 2}, "name": "Focus Parking Brake State"}
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2823" }, "freq": 1,
+    "signals": [
+      {"id": "FOCUSEV_BRK_PDL_PCT", "path": "Brakes", "fmt": {"len": 16, "min": -10, "max": 100, "div": 100, "sign": true, "unit": "percent"}, "name": "Brake Pedal Position"}
+    ]
+  },
+  { "hdr": "760", "rax": "768", "cmd": { "22": "2034" }, "freq": 1,
+    "signals": [
+      {"id": "FOCUSEV_BRK_HYD_KPA", "path": "Brakes", "fmt": {"len": 16, "max": 30000, "mul": 333, "div": 10, "unit": "kilopascal"}, "name": "Brake Fluid Line Hydraulic Pressure"}
     ]
   }
 ]}
