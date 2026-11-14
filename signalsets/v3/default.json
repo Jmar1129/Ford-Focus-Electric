@@ -11,7 +11,7 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "4848" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": {"len": 16, "max": 35, "div": 500, "unit": "kilowattHours"}, "name": "Battery Energy to Empty (kWh)"},
+      {"id": "FOCUSEV_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": {"len": 16, "max": 35, "div": 500, "unit": "kilowattHours"}, "name": "Battery Energy to Empty (kWh)", "suggestedMetric": "tractionBatteryCapacity"},
       {"id": "FOCUSEV_RANGE_FROM_KWH", "path": "Trips", "fmt": {"len": 16, "max": 150, "div": 96.6, "unit": "miles"}, "name": "Est. Range from Energy (4848)", "suggestedMetric": "electricRange"}
     ]
   },
@@ -75,12 +75,12 @@
   },
   { "hdr": "7E4", "rax": "7EC", "cmd": { "22": "484D" }, "freq": 5,
     "signals": [
-      {"id": "FOCUSEV_CHRG_STATE", "path": "Battery", "fmt": {"len": 8, "max": 5, "unit": "scalar", "map": {"0": {"val": "NOT_CHARGING", "desc": "Not Ready"}, "1": {"val": "WAIT", "desc": "Wait"}, "2": {"val": "READY", "desc": "Ready"}, "3": {"val": "CHARGING", "desc": "Charging"}, "4": {"val": "DONE", "desc": "Done"}, "5": {"val": "FAULT", "desc": "Fault"}}}, "name": "Charging State", "suggestedMetric": "isCharging"}
+      {"id": "FOCUSEV_CHRG_STATE", "path": "Battery", "fmt": {"len": 8, "map": {"0": {"value": "NOT_CHARGING", "description": "Not Ready"}, "1": {"value": "WAIT", "description": "Wait"}, "2": {"value": "READY", "description": "Ready"}, "3": {"value": "CHARGING", "description": "Charging"}, "4": {"value": "DONE", "description": "Done"}, "5": {"value": "FAULT", "description": "Fault"}}}, "name": "Charging State", "suggestedMetric": "isCharging"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "1E23" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_GEAR_POS", "path": "Transmission", "fmt": {"len": 8, "max": 255, "unit": "scalar", "map": {"70": {"val": "PARK", "desc": "Park"}, "60": {"val": "REVERSE", "desc": "Reverse"}, "50": {"val": "NEUTRAL", "desc": "Neutral"}, "40": {"val": "DRIVE", "desc": "Drive"}, "41": {"val": "DRIVE", "desc": "Drive"}, "42": {"val": "DRIVE", "desc": "Drive"}, "43": {"val": "DRIVE", "desc": "Drive"}, "44": {"val": "DRIVE", "desc": "Drive"}, "45": {"val": "DRIVE", "desc": "Drive"}, "46": {"val": "DRIVE", "desc": "Drive"}, "20": {"val": "LOW", "desc": "Low"}, "21": {"val": "LOW", "desc": "Low"}, "22": {"val": "LOW", "desc": "Low"}, "23": {"val": "LOW", "desc": "Low"}}}, "name": "Gear Position", "suggestedMetric": "gearSelector"}
+      {"id": "FOCUSEV_GEAR_POS", "path": "Transmission", "fmt": {"len": 8, "map": {"70": {"value": "PARK", "description": "Park"}, "60": {"value": "REVERSE", "description": "Reverse"}, "50": {"value": "NEUTRAL", "description": "Neutral"}, "40": {"value": "DRIVE", "description": "Drive"}, "41": {"value": "DRIVE", "description": "Drive"}, "42": {"value": "DRIVE", "description": "Drive"}, "43": {"value": "DRIVE", "description": "Drive"}, "44": {"value": "DRIVE", "description": "Drive"}, "45": {"value": "DRIVE", "description": "Drive"}, "46": {"value": "DRIVE", "description": "Drive"}, "20": {"value": "LOW", "description": "Low"}, "21": {"value": "LOW", "description": "Low"}, "22": {"value": "LOW", "description": "Low"}, "23": {"value": "LOW", "description": "Low"}}}, "name": "Gear Position", "suggestedMetric": "gearSelector"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "0914" }, "freq": 1,
@@ -95,7 +95,7 @@
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "486D" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_PTC_HTR_CMD", "path": "Climate", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Cabin Heater ON/OFF Command"}
+      {"id": "FOCUSEV_PTC_HTR_CMD", "path": "Climate", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Cabin Heater ON/OFF Command"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "9859" }, "freq": 2,
@@ -105,12 +105,12 @@
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4868" }, "freq": 5,
     "signals": [
-      {"id": "FOCUSEV_BAT_HTR_B_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Battery Coolant Heater B Relay Command"}
+      {"id": "FOCUSEV_BAT_HTR_B_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Battery Coolant Heater B Relay Command"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "4869" }, "freq": 5,
     "signals": [
-      {"id": "FOCUSEV_BAT_HTR_A_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "max": 1, "unit": "scalar", "map": {"0": {"val": "OFF", "desc": "Off"}, "1": {"val": "ON", "desc": "On"}}}, "name": "Battery Coolant Heater A Relay Command"}
+      {"id": "FOCUSEV_BAT_HTR_A_CMD", "path": "Battery.Thermal", "fmt": {"len": 8, "map": {"0": {"value": "OFF", "description": "Off"}, "1": {"value": "ON", "description": "On"}}}, "name": "Battery Coolant Heater A Relay Command"}
     ]
   },
   { "hdr": "7E0", "rax": "7E8", "cmd": { "22": "981E" }, "freq": 5,
@@ -145,7 +145,7 @@
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "4851" }, "freq": 5,
     "signals": [
-      {"id": "FOCUSEV_EVSE_TYPE", "path": "Battery", "fmt": {"len": 8, "max": 12, "unit": "scalar", "map": {"0": {"val": "UNPLUGGED", "desc": "None"}, "1": {"val": "PLUGGED_L1", "desc": "Level 1"}, "2": {"val": "PLUGGED_L2", "desc": "Level 2"}, "3": {"val": "PLUGGED_DC", "desc": "DC Fast"}, "4": {"val": "PLUGGED_BASIC", "desc": "Basic"}, "5": {"val": "PLUGGED_HILVL", "desc": "High Level"}, "11": {"val": "FAULT", "desc": "Fault"}}}, "name": "Charger Type (EVSE)", "suggestedMetric": "pluggedIn"}
+      {"id": "FOCUSEV_EVSE_TYPE", "path": "Battery", "fmt": {"len": 8, "map": {"0": {"value": "UNPLUGGED", "description": "None"}, "1": {"value": "PLUGGED_L1", "description": "Level 1"}, "2": {"value": "PLUGGED_L2", "description": "Level 2"}, "3": {"value": "PLUGGED_DC", "description": "DC Fast"}, "4": {"value": "PLUGGED_BASIC", "description": "Basic"}, "5": {"value": "PLUGGED_HILVL", "description": "High Level"}, "11": {"value": "FAULT", "description": "Fault"}}}, "name": "Charger Type (EVSE)", "suggestedMetric": "pluggedIn"}
     ]
   },
   { "hdr": "7E2", "rax": "7EA", "cmd": { "22": "484E" }, "freq": 2,
@@ -217,7 +217,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "C259" }, "freq": 2,
     "signals": [
-      {"id": "FOCUSEV_CENTRAL_LOCK_STATUS", "path": "Doors", "fmt": {"len": 8, "max": 2, "unit": "scalar", "map": {"0": {"val": "UNLOCKED", "desc": "Unlocked"}, "2": {"val": "LOCKED", "desc": "Locked"}}}, "name": "Lock Status"}
+      {"id": "FOCUSEV_CENTRAL_LOCK_STATUS", "path": "Doors", "fmt": {"len": 8, "map": {"0": {"value": "UNLOCKED", "description": "Unlocked"}, "2": {"value": "LOCKED", "description": "Locked"}}}, "name": "Lock Status"}
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "2813" }, "freq": 5,
@@ -256,7 +256,7 @@
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "407E" }, "freq": 1,
     "signals": [
-      {"id": "FOCUSEV_EXTERIOR_LIGHT_STATE", "path": "Lights", "fmt": {"len": 8, "max": 255, "unit": "scalar", "map": {"216": {"val": "ON", "desc": "Lights On"}, "0": {"val": "OFF", "desc": "Lights Off"}}}, "name": "Exterior lighting state"}
+      {"id": "FOCUSEV_EXTERIOR_LIGHT_STATE", "path": "Lights", "fmt": {"len": 8, "map": {"216": {"value": "ON", "description": "Lights On"}, "0": {"value": "OFF", "description": "Lights Off"}}}, "name": "Exterior lighting state"}
     ]
   },
   { "hdr": "726", "rax": "72E", "cmd": { "22": "7151" }, "freq": 4,
